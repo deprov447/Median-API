@@ -10,6 +10,15 @@ const app = express();
 app.use(cors());
 dotenv.config();
 
+mongoose.connect(process.env.DB_ADDR, {
+  useNewUrlParser: true,
+  useUnifiedTopology: true,
+});
+
+mongoose.connection.once("open", () => {
+  console.log("Connected to DB online");
+});
+
 app.use(
   "/gql",
   graphqlHTTP({
