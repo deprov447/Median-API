@@ -12,7 +12,7 @@ const BlogType = new graphql.GraphQLObjectType({
         resolve(parent, args) {
           return Author.findById(parent.authorID);
         },
-      }, 
+      },
       publishedIn: { type: graphql.GraphQLString },
       title: { type: graphql.GraphQLString },
       readTime: { type: graphql.GraphQLInt },

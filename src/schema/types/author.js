@@ -7,7 +7,7 @@ const AuthorType = new graphql.GraphQLObjectType({
   fields: () => {
     const { BlogType } = require("./blog");
     return {
-      id: { type: graphql.GraphQLID }, 
+      id: { type: graphql.GraphQLID },
       name: { type: graphql.GraphQLString },
       image: { type: graphql.GraphQLString },
       about: { type: graphql.GraphQLString },
