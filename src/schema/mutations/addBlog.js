@@ -7,28 +7,31 @@ const Blog = require("../../model/blog");
 var addBlog = {
   type: BlogType,
   args: {
+    authorID: { type: graphql.GraphQLID },
+    publishedIn: { type: graphql.GraphQLString },
     title: { type: graphql.GraphQLString },
-    author: { type: graphql.GraphQLString },
-    published: { type: graphql.GraphQLString },
-    date: { type: graphql.GraphQLString },
     readTime: { type: graphql.GraphQLInt },
-    tags: { type: graphql.GraphQLList(graphql.GraphQLString) },
-    rank: { type: graphql.GraphQLInt },
+    date: { type: graphql.GraphQLString },
     isStarred: { type: graphql.GraphQLBoolean },
+    tags: { type: graphql.GraphQLList(graphql.GraphQLString) },
     content: { type: graphql.GraphQLString },
+    claps: { type: graphql.GraphQLInt },
+    tweets: { type: graphql.GraphQLInt },
+    rank: { type: graphql.GraphQLInt },
   },
   resolve(parent, args) {
-    var AuthorName = "someAuthor";
     let blogTemp = new Blog({
+      authorID: args.authorID, //Todo
+      publishedIn: args.publishedIn,
       title: args.title,
-      author: AuthorName, //Todo
-      published: args.published,
-      date: args.date,
       readTime: args.readTime,
-      tags: args.tags,
-      rank: args.rank,
+      date: args.date,
       isStarred: args.isStarred,
+      tags: args.tags,
       content: args.content,
+      claps: args.claps,
+      tweets: args.tweets,
+      rank: args.rank,
     });
     return blogTemp.save();
   },

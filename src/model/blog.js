@@ -1,16 +1,17 @@
 const mongoose = require("mongoose");
 
 const blogSchema = new mongoose.Schema({
+  authorID: String,
+  publishedIn: String,
   title: String,
-  // author: mongoose.Schema.Types.ObjectId,
-  author: String,
-  published: String,
-  date: Date,
   readTime: Number,
-  tags: [String],
-  rank: Number,
+  date: Date,
   isStarred: Boolean,
+  tags: [String],
   content: String,
+  claps: Number,
+  tweets: Number,
+  rank: Number,
 });
 
 module.exports = mongoose.model("Blog", blogSchema);

@@ -10,14 +10,16 @@ var addAuthor = {
     name: { type: graphql.GraphQLString },
     image: { type: graphql.GraphQLString },
     about: { type: graphql.GraphQLString },
-    // following: { type: graphql.GraphQLList },
+    following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
+    blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
   resolve(parent, args) {
     let authorTemp = new Author({
       name: args.name,
       image: args.image,
       about: args.about,
-      //   following: args.following,
+      following: args.following,
+      blogs: args.blogs,
     });
     return authorTemp.save();
   },
