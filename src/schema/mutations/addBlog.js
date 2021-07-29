@@ -20,12 +20,13 @@ var addBlog = {
     rank: { type: graphql.GraphQLInt },
   },
   resolve(parent, args) {
+    console.log(`Adding blog with details`, args);
     let blogTemp = new Blog({
-      authorID: args.authorID, //Todo
+      authorID: args.authorID,
       publishedIn: args.publishedIn,
       title: args.title,
       readTime: args.readTime,
-      date: args.date,
+      date: args.date, //FixMe
       isStarred: args.isStarred,
       tags: args.tags,
       content: args.content,

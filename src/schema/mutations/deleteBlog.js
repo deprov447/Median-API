@@ -14,7 +14,7 @@ const deleteBlog = {
       (err, delObject) => {
         if (err) console.log(err);
         else {
-          console.log(`Blog ${args.id} deleted`, delObject);
+          console.log(`Blog ${args.id} deleted`);
         }
       }
     );

@@ -17,6 +17,7 @@ const editAuthor = {
     Object.keys(args).map((item) => {
       if (args[item] != undefined) updatedObject[item] = args[item];
     });
+    console.log(`Author ${args.id} updated with`, updatedObject);
     return Author.updateOne({ _id: args.id }, updatedObject);
   },
 };

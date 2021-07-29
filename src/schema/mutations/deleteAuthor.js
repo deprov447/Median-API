@@ -15,7 +15,7 @@ const deleteAuthor = {
       (err, delObject) => {
         if (err) console.log(err);
         else {
-          console.log(`Author ${args.id} deleted`, delObject);
+          console.log(`Author ${args.id} deleted`);
         }
       }
     );

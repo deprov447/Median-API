@@ -8,6 +8,7 @@ var blog = {
   type: BlogType,
   args: { id: { type: graphql.GraphQLID } },
   resolve(parent, args) {
+    console.log(`Querying blog ${args.id}`);
     return Blog.findById(args.id);
   },
 };

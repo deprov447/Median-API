@@ -14,6 +14,7 @@ var addAuthor = {
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
   resolve(parent, args) {
+    console.log(`Adding author with details`, args);
     let authorTemp = new Author({
       name: args.name,
       image: args.image,

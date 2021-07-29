@@ -23,6 +23,7 @@ const editBlog = {
     Object.keys(args).map((item) => {
       if (args[item] != undefined) updatedObject[item] = args[item];
     });
+    console.log(`Blog ${args.id} updated with`, updatedObject);
     return Blog.updateOne({ _id: args.id }, updatedObject);
   },
 };

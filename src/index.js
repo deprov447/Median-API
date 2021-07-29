@@ -16,7 +16,7 @@ mongoose.connect(process.env.DB_ADDR, {
 });
 
 mongoose.connection.once("open", () => {
-  console.log("Connected to DB online");
+  console.log("Connected to online DB");
 });
 
 app.use(
