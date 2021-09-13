@@ -7,7 +7,8 @@ const deleteAuthor = {
   args: {
     id: { type: graphql.GraphQLID },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.authorized == false) return;
     console.log(args.id);
     Author.deleteOne(
       {

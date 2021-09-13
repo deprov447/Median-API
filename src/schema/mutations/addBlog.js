@@ -18,7 +18,8 @@ var addBlog = {
     tweets: { type: graphql.GraphQLInt },
     rank: { type: graphql.GraphQLInt },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.authorized == false) return;
     console.log(`Adding blog with details`, args);
     let blogTemp = new Blog({
       authorID: args.authorID,

@@ -11,7 +11,8 @@ var signup = {
     email: { type: graphql.GraphQLString },
     password: { type: graphql.GraphQLString },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.userData.username != "admin") return;
     console.log(`Adding User with details`, args);
     return bcrypt.hash(args.password, 12).then((hash) => {
       let userTemp = new User({
@@ -19,9 +20,8 @@ var signup = {
         email: args.email,
         password: hash,
       });
-      return userTemp.save().then((data)=>{
-        delete data[password];
-        return data
+      return userTemp.save().then((data) => {
+        return data;
       });
     });
   },

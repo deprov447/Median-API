@@ -19,7 +19,8 @@ const editBlog = {
     tweets: { type: graphql.GraphQLInt },
     rank: { type: graphql.GraphQLInt },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.authorized == false) return;
     var updatedObject = {};
     Object.keys(args).map((item) => {
       if (args[item] != undefined) updatedObject[item] = args[item];

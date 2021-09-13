@@ -12,7 +12,8 @@ var addAuthor = {
     following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.authorized == false) return;
     console.log(`Adding author with details`, args);
     let authorTemp = new Author({
       name: args.name,

@@ -13,7 +13,8 @@ const editAuthor = {
     following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.authorized == false) return;
     var updatedObject = {};
     Object.keys(args).map((item) => {
       if (args[item] != undefined) updatedObject[item] = args[item];

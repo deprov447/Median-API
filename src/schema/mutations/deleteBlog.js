@@ -7,7 +7,8 @@ const deleteBlog = {
   args: {
     id: { type: graphql.GraphQLID },
   },
-  resolve(parent, args) {
+  resolve(parent, args, context) {
+    if (context.authorized == false) return;
     Blog.deleteOne(
       {
         _id: args.id,
