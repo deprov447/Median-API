@@ -1,8 +1,9 @@
 const graphql = require("graphql");
 
-const { blog } = require("./blog");
 const { author } = require("./author");
+const { blog } = require("./blog");
 const { blogsByRank } = require("./blogsByRank");
+const { login } = require("./login");
 const { randomBlog } = require("./randomBlog");
 
 const RootQuery = new graphql.GraphQLObjectType({
@@ -11,7 +12,8 @@ const RootQuery = new graphql.GraphQLObjectType({
     blog: blog,
     author: author,
     blogsByRank: blogsByRank,
-    randomBlog: randomBlog
+    randomBlog: randomBlog,
+    login: login,
   },
 });
 

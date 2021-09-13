@@ -1,6 +1,6 @@
 const graphql = require("graphql");
 
-const { BlogType } = require("../types/blog");
+const { BlogType } = require("../types/blogType");
 
 const Blog = require("../../model/blog");
 
@@ -14,7 +14,6 @@ var blogsByRank = {
       const item = await Blog.findOne({ rank: i });
       result.push(item);
     }
-    // console.log(result);
     return result;
   },
 };

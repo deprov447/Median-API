@@ -1,11 +1,12 @@
 const graphql = require("graphql");
-const author = require("../../model/author");
-const blog = require("../../model/blog");
+
+const Author = require("../../model/author");
+const Blog = require("../../model/blog");
 
 const AuthorType = new graphql.GraphQLObjectType({
   name: "Author",
   fields: () => {
-    const { BlogType } = require("./blog");
+    const { BlogType } = require("./blogType");
     return {
       id: { type: graphql.GraphQLID },
       name: { type: graphql.GraphQLString },
@@ -15,7 +16,7 @@ const AuthorType = new graphql.GraphQLObjectType({
         type: new graphql.GraphQLList(AuthorType),
         resolve(parent, args) {
           var followingList = parent.following.map((id) => {
-            return author.findById(id);
+            return Author.findById(id);
           });
           return followingList;
         },
@@ -24,7 +25,7 @@ const AuthorType = new graphql.GraphQLObjectType({
         type: new graphql.GraphQLList(BlogType),
         resolve(parent, args) {
           var blogList = parent.blogs.map((id) => {
-            return blog.findById(id);
+            return Blog.findById(id);
           });
           return blogList;
         },

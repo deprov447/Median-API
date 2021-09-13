@@ -1,8 +1,7 @@
 const graphql = require("graphql");
 
-const { BlogType } = require("../types/blog");
-
 const Blog = require("../../model/blog");
+const { BlogType } = require("../types/blogType");
 
 var addBlog = {
   type: BlogType,

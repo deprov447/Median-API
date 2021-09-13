@@ -1,10 +1,11 @@
 const graphql = require("graphql");
+
 const Author = require("../../model/author");
 
 const BlogType = new graphql.GraphQLObjectType({
   name: "Blog",
   fields: () => {
-    const { AuthorType } = require("./author");
+    const { AuthorType } = require("./authorType");
     return {
       id: { type: graphql.GraphQLID },
       author: {

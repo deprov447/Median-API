@@ -7,7 +7,6 @@ const deleteBlog = require("./deleteBlog");
 const editAuthor = require("./editAuthor");
 const editBlog = require("./editBlog");
 const signup = require("./signup");
-const login = require("./login");
 
 const RootMutation = new graphql.GraphQLObjectType({
   name: "RootMutationType",
@@ -19,7 +18,6 @@ const RootMutation = new graphql.GraphQLObjectType({
     deleteAuthor: deleteAuthor,
     deleteBlog: deleteBlog,
     signup: signup,
-    login: login,
   },
 });
 

@@ -2,7 +2,7 @@ const graphql = require("graphql");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 
-const { TokenType } = require("../types/token");
+const { TokenType } = require("../types/tokenType");
 const User = require("../../model/user");
 
 var login = {
@@ -42,4 +42,4 @@ var login = {
   },
 };
 
-module.exports = login;
+module.exports = { login };

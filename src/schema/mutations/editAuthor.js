@@ -1,6 +1,7 @@
 const graphql = require("graphql");
-const { AuthorType } = require("../types/author");
+
 const Author = require("../../model/author");
+const { AuthorType } = require("../types/authorType");
 
 const editAuthor = {
   type: AuthorType,

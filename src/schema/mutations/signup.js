@@ -1,8 +1,8 @@
 const graphql = require("graphql");
 const bcrypt = require("bcrypt");
 
-const { UserType } = require("../types/user");
 const User = require("../../model/user");
+const { UserType } = require("../types/userType");
 
 var signup = {
   type: UserType,
@@ -19,7 +19,10 @@ var signup = {
         email: args.email,
         password: hash,
       });
-      return userTemp.save();
+      return userTemp.save().then((data)=>{
+        delete data[password];
+        return data
+      });
     });
   },
 };

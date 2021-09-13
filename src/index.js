@@ -16,7 +16,7 @@ mongoose.connect(process.env.DB_ADDR, {
 });
 
 mongoose.connection.once("open", () => {
-  console.log("Connected to online DB");
+  console.log(`Connected to Online DB at ${process.env.DB_ADDR}`);
 });
 
 app.use(
@@ -30,5 +30,5 @@ app.use(
 const port = process.env.PORT;
 
 app.listen(port, () => {
-  console.log(`GQL server on ${port}`);
+  console.log(`Median server running on ${port}/gql`);
 });
