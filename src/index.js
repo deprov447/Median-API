@@ -10,6 +10,7 @@ const schema = require("./schema/schema");
 const app = express();
 app.use(cors());
 dotenv.config();
+app.use("/", express.static("src/frontend/public"));
 
 mongoose.connect(process.env.DB_ADDR, {
   useNewUrlParser: true,
@@ -18,6 +19,16 @@ mongoose.connect(process.env.DB_ADDR, {
 
 mongoose.connection.once("open", () => {
   console.log(`Connected to Online DB at ${process.env.DB_ADDR}`);
+});
+
+app.get("/client", (req, res) => {
+  res.send(`<embed src="https://graphql-demo.mead.io/" style="width:100vw; height: 100vh;"> 
+  <style>
+    body {
+      padding: 0;
+      margin: 0;
+    }
+  </style>`);
 });
 
 var authContext = {
