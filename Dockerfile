@@ -15,6 +15,6 @@ RUN npm install
 
 COPY . .
 RUN rm -rf src/frontend
-COPY --from=website-build /app/ ./src/frontend/public
+COPY --from=website-build /app/public ./src/frontend/public
 
 CMD ["npm","start"]
