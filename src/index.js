@@ -5,7 +5,8 @@ const express = require("express"),
   dotenv = require("dotenv"),
   jwt = require("jsonwebtoken");
 
-const schema = require("./schema/schema");
+const schema = require("./schema/schema"),
+  { depthLimiter } = require("./schema/limiter");
 
 const app = express();
 app.use(cors());
@@ -56,6 +57,7 @@ app.use(
     schema: schema,
     context: authContext,
     graphiql: false,
+    validationRules: [depthLimiter()],
   })
 );
 
