@@ -26,7 +26,7 @@ const depthLimiter = () => {
   if (process.env.DEPTH_LIMIT != undefined) {
     return depthLimitGQL(process.env.DEPTH_LIMIT);
   }
-  return Infinity;
+  return depthLimitGQL(Infinity);
 };
 
 module.exports = { rateLimiter, depthLimiter };

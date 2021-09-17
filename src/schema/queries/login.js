@@ -1,6 +1,7 @@
 const graphql = require("graphql");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
+const { rateLimiter } = require("../limiter");
 
 const { TokenType } = require("../types/tokenType");
 const User = require("../../model/user");
@@ -11,7 +12,9 @@ var login = {
     email: { type: graphql.GraphQLString },
     password: { type: graphql.GraphQLString },
   },
-  resolve(parent, args) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
+    
     console.log(`Login User with details`, args);
     return User.findOne({ email: args.email }).then((user) => {
       if (!user)

@@ -1,4 +1,5 @@
 const graphql = require("graphql");
+const { rateLimiter } = require("../limiter");
 
 const Blog = require("../../model/blog");
 
@@ -7,8 +8,10 @@ const deleteBlog = {
   args: {
     id: { type: graphql.GraphQLID },
   },
-  resolve(parent, args, context) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
+    
     Blog.deleteOne(
       {
         _id: args.id,

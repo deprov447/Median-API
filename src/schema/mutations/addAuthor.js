@@ -1,4 +1,5 @@
 const graphql = require("graphql");
+const { rateLimiter } = require("../limiter");
 
 const Author = require("../../model/author");
 const { AuthorType } = require("../types/authorType");
@@ -12,7 +13,9 @@ var addAuthor = {
     following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
-  resolve(parent, args, context) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
+
     if (context.authorized == false) return;
     console.log(`Adding author with details`, args);
     let authorTemp = new Author({

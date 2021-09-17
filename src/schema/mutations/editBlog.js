@@ -1,4 +1,5 @@
 const graphql = require("graphql");
+const { rateLimiter } = require("../limiter");
 
 const Blog = require("../../model/blog");
 const { BlogType } = require("../types/blogType");
@@ -19,8 +20,10 @@ const editBlog = {
     tweets: { type: graphql.GraphQLInt },
     rank: { type: graphql.GraphQLInt },
   },
-  resolve(parent, args, context) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
+    
     var updatedObject = {};
     Object.keys(args).map((item) => {
       if (args[item] != undefined) updatedObject[item] = args[item];
