@@ -1,3 +1,5 @@
 .env
 node_modules
-src/frontend/public
+src/frontend/public/*
+
+!voyager.html
