@@ -22,7 +22,7 @@ var addBlog = {
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
-    
+
     console.log(`Adding blog with details`, args);
     let blogTemp = new Blog({
       authorID: args.authorID,

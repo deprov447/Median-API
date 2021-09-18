@@ -15,7 +15,7 @@ var signup = {
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.userData.username != "admin") return;
-    
+
     console.log(`Adding User with details`, args);
     return bcrypt.hash(args.password, 12).then((hash) => {
       let userTemp = new User({

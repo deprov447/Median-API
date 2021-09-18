@@ -11,7 +11,7 @@ const deleteBlog = {
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
-    
+
     Blog.deleteOne(
       {
         _id: args.id,

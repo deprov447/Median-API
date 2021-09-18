@@ -2,7 +2,7 @@ const { getGraphQLRateLimiter } = require("graphql-rate-limit");
 const depthLimitGQL = require("graphql-depth-limit");
 
 const rateLimitGQL = getGraphQLRateLimiter({
-  identifyContext: (ctx) => ctx.id,
+  identifyContext: (ctx) => ctx.userData.IP.clientIP,
 });
 
 const rateLimiter = async (

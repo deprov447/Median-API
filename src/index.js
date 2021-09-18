@@ -3,7 +3,8 @@ const express = require("express"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   dotenv = require("dotenv"),
-  jwt = require("jsonwebtoken");
+  jwt = require("jsonwebtoken"),
+  getIP = require("ipware")().get_ip;
 
 const schema = require("./schema/schema"),
   { depthLimiter } = require("./schema/limiter");
@@ -32,7 +33,7 @@ app.get("/client", (req, res) => {
   </style>`);
 });
 
-var authContext = {
+var context = {
   authorized: false,
   userData: {},
 };
@@ -41,8 +42,8 @@ var userAuth = (req, res, next) => {
   const token = req.headers["authorization"];
   try {
     var decoded = jwt.verify(token, process.env.SECRET);
-    authContext["authorized"] = true;
-    authContext["userData"] = decoded;
+    context["authorized"] = true;
+    context["userData"] = decoded;
   } catch (err) {
     console.log("User Not Verified");
   }
@@ -51,11 +52,18 @@ var userAuth = (req, res, next) => {
 
 app.use(userAuth);
 
+var ipExtract = (req, res, next) => {
+  context["userData"]["IP"] = getIP(req);
+  next();
+};
+
+app.use(ipExtract);
+
 app.use(
   "/gql",
   graphqlHTTP({
     schema: schema,
-    context: authContext,
+    context: context,
     graphiql: false,
     validationRules: [depthLimiter()],
   })

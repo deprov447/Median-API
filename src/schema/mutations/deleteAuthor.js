@@ -11,7 +11,7 @@ const deleteAuthor = {
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
-    
+
     console.log(args.id);
     Author.deleteOne(
       {

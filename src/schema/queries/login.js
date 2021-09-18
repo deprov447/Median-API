@@ -14,7 +14,7 @@ var login = {
   },
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
-    
+
     console.log(`Login User with details`, args);
     return User.findOne({ email: args.email }).then((user) => {
       if (!user)
