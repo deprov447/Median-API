@@ -1,4 +1,5 @@
 const graphql = require("graphql");
+const { rateLimiter } = require("../limiter");
 
 const Author = require("../../model/author");
 
@@ -7,8 +8,10 @@ const deleteAuthor = {
   args: {
     id: { type: graphql.GraphQLID },
   },
-  resolve(parent, args, context) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
+
     console.log(args.id);
     Author.deleteOne(
       {

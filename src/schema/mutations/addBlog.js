@@ -1,4 +1,5 @@
 const graphql = require("graphql");
+const { rateLimiter } = require("../limiter");
 
 const Blog = require("../../model/blog");
 const { BlogType } = require("../types/blogType");
@@ -18,8 +19,10 @@ var addBlog = {
     tweets: { type: graphql.GraphQLInt },
     rank: { type: graphql.GraphQLInt },
   },
-  resolve(parent, args, context) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
+
     console.log(`Adding blog with details`, args);
     let blogTemp = new Blog({
       authorID: args.authorID,

@@ -1,4 +1,5 @@
 const graphql = require("graphql");
+const { rateLimiter } = require("../limiter");
 
 const Author = require("../../model/author");
 const { AuthorType } = require("../types/authorType");
@@ -13,8 +14,10 @@ const editAuthor = {
     following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
-  resolve(parent, args, context) {
+  async resolve(parent, args, context, info) {
+    await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;
+
     var updatedObject = {};
     Object.keys(args).map((item) => {
       if (args[item] != undefined) updatedObject[item] = args[item];
