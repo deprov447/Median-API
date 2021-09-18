@@ -33,6 +33,10 @@ app.get("/client", (req, res) => {
   </style>`);
 });
 
+app.get("/voyager", (req, res) => {
+  res.sendFile(__dirname + "/frontend/public/voyager.html");
+});
+
 var context = {
   authorized: false,
   userData: {},
