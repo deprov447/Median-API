@@ -17,16 +17,25 @@ disablePathToLower = true
   startLevel = 1
 
 [menu]
-# [[menu.before]]
+[[menu.before]]
+  name = "Request to Demo Server"
+  url = "/client"
+  weight = 10
+
+[[menu.before]]
+  name = "API Docs"
+  url = "/api-docs"
+  weight = 20
+
+[[menu.before]]
+  name = "Visualize Connections"
+  url = "/voyager"
+  weight = 30
+
 [[menu.after]]
   name = "Github"
   url = "https://github.com/deprov447/median-server"
   weight = 10
-
-[[menu.after]]
-  name = "Client"
-  url = "/client"
-  weight = 20
 
 [params]
   # (Optional, default light) Sets color theme: light, dark or auto.
