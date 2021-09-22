@@ -13,6 +13,9 @@ var addAuthor = {
     following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
+  description: `
+    Creates an author
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
 

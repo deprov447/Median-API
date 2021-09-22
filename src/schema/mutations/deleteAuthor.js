@@ -8,6 +8,9 @@ const deleteAuthor = {
   args: {
     id: { type: graphql.GraphQLID },
   },
+  description: `
+    Deletes an author
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;

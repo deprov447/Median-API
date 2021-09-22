@@ -9,7 +9,10 @@ const editBlog = require("./editBlog");
 const signup = require("./signup");
 
 const RootMutation = new graphql.GraphQLObjectType({
-  name: "RootMutationType",
+  name: "RootMutation",
+  description: `
+    Mutations require an authentic JWT token in HTTP-HEADERS
+  `,
   fields: {
     addAuthor: addAuthor,
     addBlog: addBlog,

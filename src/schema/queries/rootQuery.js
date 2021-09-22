@@ -7,7 +7,7 @@ const { login } = require("./login");
 const { randomBlog } = require("./randomBlog");
 
 const RootQuery = new graphql.GraphQLObjectType({
-  name: "RootQueryType",
+  name: "RootQuery",
   fields: {
     blog: blog,
     author: author,

@@ -8,6 +8,9 @@ const deleteBlog = {
   args: {
     id: { type: graphql.GraphQLID },
   },
+  description: `
+    Deletes a blog
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;

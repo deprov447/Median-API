@@ -14,6 +14,9 @@ const editAuthor = {
     following: { type: new graphql.GraphQLList(graphql.GraphQLString) },
     blogs: { type: new graphql.GraphQLList(graphql.GraphQLString) },
   },
+  description: `
+    Edits an author
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;

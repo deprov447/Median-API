@@ -20,6 +20,9 @@ const editBlog = {
     tweets: { type: graphql.GraphQLInt },
     rank: { type: graphql.GraphQLInt },
   },
+  description: `
+    Edits a blog
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;

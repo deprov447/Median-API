@@ -19,6 +19,9 @@ var addBlog = {
     tweets: { type: graphql.GraphQLInt },
     rank: { type: graphql.GraphQLInt },
   },
+  description: `
+    Creates an blog
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.authorized == false) return;

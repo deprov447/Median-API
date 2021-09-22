@@ -12,6 +12,10 @@ var signup = {
     email: { type: graphql.GraphQLString },
     password: { type: graphql.GraphQLString },
   },
+  description: `
+    Creates a new user.
+    > An author is different from a user
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     if (context.userData.username != "admin") return;

@@ -12,6 +12,9 @@ var login = {
     email: { type: graphql.GraphQLString },
     password: { type: graphql.GraphQLString },
   },
+  description: `
+    Checks the entered details against the database and returns a [JWT](https://jwt.io/introduction) token accordingly.
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
 

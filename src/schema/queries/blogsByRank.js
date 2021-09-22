@@ -8,6 +8,9 @@ const Blog = require("../../model/blog");
 var blogsByRank = {
   type: new graphql.GraphQLList(BlogType),
   args: { num: { type: graphql.GraphQLInt } },
+  description: `
+    Returns a list of blogs within the provided rank.
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
 

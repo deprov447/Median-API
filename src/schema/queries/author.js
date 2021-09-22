@@ -8,6 +8,9 @@ const Author = require("../../model/author");
 var author = {
   type: AuthorType,
   args: { id: { type: graphql.GraphQLID } },
+  description: `
+    Takens an ID and returns the corresponding author.
+  `,
   async resolve(parent, args, context, info) {
     await rateLimiter(parent, args, context, info);
     console.log(`Querying author ${args.id}`);
