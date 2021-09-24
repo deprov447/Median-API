@@ -1,22 +1,16 @@
+<img src="./src/frontend/static/fullLength.png" width="350" height="80"/>
 
-# Median API
+![GitHub Workflow Status (branch)](https://img.shields.io/github/workflow/status/deprov447/median-api/Node.js%20CI/master?style=for-the-badge)
+![GitHub deployments](https://img.shields.io/github/deployments/deprov447/median-api/server-median?label=Deployment%20state&style=for-the-badge)
 
-![GitHub branch checks state](https://img.shields.io/github/checks-status/deprov447/median-server/master?style=for-the-badge)
-![Website](https://img.shields.io/website?style=for-the-badge&url=https%3A%2F%2Fserver-median.herokuapp.com)
-![GitHub deployments](https://img.shields.io/github/deployments/deprov447/median-server/server-median?style=for-the-badge)
-![GitHub repo size](https://img.shields.io/github/repo-size/deprov447/median-server?label=Size&style=for-the-badge)
+![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/deprov447/median-api?style=for-the-badge)
+![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/deprov447/median-api?style=for-the-badge)
+![David (path)](https://img.shields.io/david/deprov447/median-server?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/deprov447/median-server?style=for-the-badge)
 
 A GraphQL based feature rich blogging API.
 
-
----
-
-## Buy me a coffee
-
-Whether you use this project, have learned something from it, or just like it, please consider supporting it by buying me a coffee, so I can dedicate more time on open-source projects like this :)
-
-<a href="https://www.buymeacoffee.com/deprov447" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" alt="Buy Me A Coffee" ></a>
+See full documentation [HERE](https://server-median.herokuapp.com) for API docs, configuration and deployment options.
 
 ---
 
@@ -46,18 +40,25 @@ The API is fully open source, you can freely host it on your own server with all
 
 - Clone this repo: `git clone https://github.com/deprov447/median-server`
 - Run `npm install`
-- Setup environment variables : 
-	- Create a `.env` file in root directory of the project
-	- Insert these 3 keys/value pairs :
-		- **PORT** : *< Port on which server will listen >*
-		- **DB_ADDR** : *< Mongo database connection URI >*
-		- **SECRET** : *< Secret key for signing auth tokens >*
-- Start the server: `npm start` 
+- Setup environment variables :
+  - Create a `.env` file in root directory of the project
+  - Insert these 3 keys/value pairs :
+    - **PORT** : _< Port on which server will listen >_
+    - **DB_ADDR** : _< Mongo database connection URI >_
+    - **SECRET** : _< Secret key for signing auth tokens >_
+- Start the server: `npm start`
 - Start requesting from a client (eg: [playground](https://server-median.herokuapp.com/client))
+
+---
+
+## Buy me a coffee
+
+Whether you use this project, have learned something from it, or just like it, please consider supporting it by buying me a coffee, so I can dedicate more time on open-source projects like this :)
+
+<a href="https://www.buymeacoffee.com/deprov447" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/guidelines/download-assets-sm-1.svg" alt="Buy Me A Coffee" ></a>
 
 ---
 
 ## License
 
 This project is licensed under the terms of the **MIT** license.
-
