@@ -5,7 +5,6 @@
 
 ![GitHub code size in bytes](https://img.shields.io/github/languages/code-size/deprov447/median-api?style=for-the-badge)
 ![Docker Image Size (latest by date)](https://img.shields.io/docker/image-size/deprov447/median-api?style=for-the-badge)
-![David (path)](https://img.shields.io/david/deprov447/median-server?style=for-the-badge)
 ![GitHub](https://img.shields.io/github/license/deprov447/median-server?style=for-the-badge)
 
 A GraphQL based feature rich blogging API.
@@ -48,6 +47,8 @@ The API is fully open source, you can freely host it on your own server with all
     - **SECRET** : _< Secret key for signing auth tokens >_
 - Start the server: `npm start`
 - Start requesting from a client (eg: [playground](https://server-median.herokuapp.com/client))
+
+> Or the same can be done using [docker](https://hub.docker.com/r/deprov447/median-api) also: `docker pull deprov447/median-api`
 
 ---
 

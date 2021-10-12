@@ -27,6 +27,11 @@ weight: 10
 - [Docker](https://docs.docker.com/get-docker/)
 
 **Steps to setup**
+
+You can pull the latest version of Median from [Docker Hub](https://hub.docker.com/r/deprov447/median-api).
+Use `docker pull deprov447/median-api`
+
+**or else build your own image**:
 - `git clone https://github.com/deprov447/median-api` : Clone the repo to your machine
 - `cd median-api`
 - `docker build --network=host -t median-api .` : Build the image

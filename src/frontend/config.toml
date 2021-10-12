@@ -23,11 +23,6 @@ disablePathToLower = true
   weight = 10
 
 [[menu.before]]
-  name = "API Docs"
-  url = "/api-docs"
-  weight = 20
-
-[[menu.before]]
   name = "Visualize Connections"
   url = "/voyager"
   weight = 30
