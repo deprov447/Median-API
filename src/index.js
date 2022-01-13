@@ -1,13 +1,13 @@
 const express = require("express"),
-  { graphqlHTTP } = require("express-graphql"),
+  // { graphqlHTTP } = require("express-graphql"),
   mongoose = require("mongoose"),
   cors = require("cors"),
   dotenv = require("dotenv"),
   jwt = require("jsonwebtoken"),
   getIP = require("ipware")().get_ip;
 
-const schema = require("./schema/schema"),
-  { depthLimiter } = require("./schema/limiter");
+// const schema = require("./schema/schema")
+const { depthLimiter } = require("./schema/limiter");
 
 const app = express();
 app.use(cors());
@@ -63,15 +63,18 @@ var ipExtract = (req, res, next) => {
 
 app.use(ipExtract);
 
-app.use(
-  "/gql",
-  graphqlHTTP({
-    schema: schema,
-    context: context,
-    graphiql: false,
-    validationRules: [depthLimiter()],
-  })
-);
+// app.use(
+//   "/gql",
+//   graphqlHTTP({
+//     schema: schema,
+//     context: context,
+//     graphiql: false,
+//     validationRules: [depthLimiter()],
+//   })
+// );
+
+const startApolloServer = require("./apolloServer")
+startApolloServer();
 
 const port = process.env.PORT;
 
