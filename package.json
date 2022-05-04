@@ -4,6 +4,7 @@
   "description": "A GraphQL based feature rich blogging API",
   "main": "index.js",
   "scripts": {
+    "test": "echo \"Error: no test specified\" && exit",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
