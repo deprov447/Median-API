@@ -1,5 +1,12 @@
+.git
+.github
 node_modules
 .dockerignore
+.env
+.gitignore
+.prettierignore
 Dockerfile
+heroku.yml
+LICENSE
+README.md
 npm-debug.log
-.git

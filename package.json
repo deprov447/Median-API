@@ -1,16 +1,15 @@
 {
-  "name": "server",
+  "name": "median-api",
   "version": "1.0.0",
-  "description": "",
+  "description": "A GraphQL based feature rich blogging API",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit",
     "dev": "nodemon src/index.js",
     "start": "node src/index.js"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "deprov447",
+  "license": "MIT",
   "dependencies": {
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",

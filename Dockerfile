@@ -1,11 +1,11 @@
-FROM klakegg/hugo AS website-build
+FROM klakegg/hugo:alpine AS website-build
 
 WORKDIR /app
 
 COPY ./src/frontend .
 RUN hugo 
 
-FROM node:latest AS server-build
+FROM node:alpine AS server-build
 ENV NODE_ENV=production
 
 WORKDIR /app
