@@ -21,7 +21,7 @@
     "graphql-depth-limit": "^1.1.0",
     "graphql-rate-limit": "^3.1.0",
     "ipware": "^2.0.0",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^5.13.3"
   }
 }
