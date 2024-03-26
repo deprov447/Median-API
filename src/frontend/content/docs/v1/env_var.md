@@ -33,6 +33,10 @@ weight: 20
 
 The method to set environment variables depends mostly on what system you are using / where the server is deployed. But here are a few ways to set env variables:
 
+### Docker Compose
+
+Make required changes in `docker-compose.yml`
+
 ### Local System
 
 #### CLI

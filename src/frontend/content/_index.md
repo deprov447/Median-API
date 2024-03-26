@@ -7,6 +7,13 @@ type: docs
 
 A GraphQL based feature rich blogging API.
 
+# Quick try
+
+- Clone the source code `git clone https://github.com/deprov447/Median-API.git`
+- Run docker containers `docker compose up`
+- Open [http://localhost:8000/client](http://localhost:8000/client) in a browser and enter `http://localhost:8000/gql` in request url
+- Play around
+
 ## Lightweight
 
 Median API is very lightweight as compared to other REST based API. And the main reason is that you get only the content you request for, which is not possible (or atleast cumbersome) in REST architecture.
