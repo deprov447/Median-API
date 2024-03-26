@@ -1,0 +1,22 @@
+name: median-api
+services:
+    mongo:
+        container_name: mongo
+        image: mongo
+        ports:
+            - 27017:27017
+    median-api:
+        build:
+          context: .
+          tags:
+            - "median-api"
+        container_name: median-api
+        ports:
+            - 8000:8000
+        environment:
+            - PORT=8000
+            - DB_ADDR=mongodb://mongo:27017/mediandb
+            - SECRET=jwtsecret
+        links:
+            - mongo:mongo
+        image: median-api
